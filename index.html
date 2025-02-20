@@ -18,8 +18,22 @@
             background-color: #f2f2f2;
         }
     </style>
+    <!-- 引入MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["AMSmath.js", "AMSsymbols.js"] }
+            }
+        });
+    </script>
 </head>
 <body>
     <table>
@@ -29,54 +43,74 @@
             <th>说明</th>
         </tr>
         <tr>
+            <td>基期A1</td>
+            <td>\[ A1 = \frac{B1}{1 + r1} \]</td>
+            <td>第一个现期B1的基期</td>
+        </tr>
+        <tr>
             <td>基期A2</td>
-            <td>\[ A2 = \frac{A1}{1 + r1} \]</td>
-            <td>基期A的计算公式</td>
+            <td>\[ A2 = \frac{B2}{1 + r2} \]</td>
+            <td>第二个现期B2的基期</td>
         </tr>
         <tr>
-            <td>基期B2</td>
-            <td>\[ B2 = \frac{B1}{1 + r2} \]</td>
-            <td>基期B的计算公式</td>
+            <td>增长量Δ1</td>
+            <td>\[ \Delta 1 = B1 - A1 \]</td>
+            <td>第一个现期1的增长量</td>
         </tr>
         <tr>
-            <td>增长量x1</td>
-            <td>\[ x1 = A1 - A2 \]</td>
-            <td>A的增长量</td>
+            <td>增长量Δ2</td>
+            <td>\[ \Delta 2 = B2 - A2 \]</td>
+            <td>第二个现期2的增长量</td>
         </tr>
         <tr>
-            <td>增长量x2</td>
-            <td>\[ x2 = B1 - B2 \]</td>
-            <td>B的增长量</td>
+            <td>现期比重P1</td>
+            <td>\[ P1 = \frac{B1}{B1 + B2} \]</td>
+            <td>第一个现期B1在B1+B2中的比重</td>
         </tr>
         <tr>
-            <td>现期比重P</td>
-            <td>\[ P = \frac{A1}{A1 + B1} \]</td>
-            <td>现期A在A+B中的比重</td>
+            <td>现期比重P2</td>
+            <td>\[ P2 = \frac{B2}{B1 + B2} \]</td>
+            <td>第二个现期B2在B1+B2中的比重</td>
         </tr>
         <tr>
-            <td>基期比重P'</td>
-            <td>\[ P' = \frac{A2}{A2 + B2} \]</td>
-            <td>基期A在A+B中的比重</td>
+            <td>基期比重P'1</td>
+            <td>\[ P'1 = \frac{A1}{A1 + A2} \]</td>
+            <td>第一个基期A1在A1+A2中的比重</td>
         </tr>
         <tr>
-            <td>两期比重差d</td>
-            <td>\[ d = \frac{A1}{B1} \times \frac{(r1 - r2)}{(1 + r1)} \]</td>
-            <td>现期比重与基期比重的差值</td>
+            <td>基期比重P'2</td>
+            <td>\[ P'2 = \frac{A2}{A1 + A2} \]</td>
+            <td>第二个基期A2在A1+A2中的比重</td>
         </tr>
         <tr>
-            <td>比值增长率k</td>
-            <td>\[ k = \frac{(r1 - r2)}{(1 + r2)} \]</td>
-            <td>现期比重相对于基期比重的增长率</td>
+            <td>两期比重差d1</td>
+            <td>\[ d1 = \frac{B1}{B2} \times \frac{(r1 - r2)}{(1 + r1)} \]</td>
+            <td>第一个现期比重与第二个现期比重的差值</td>
+        </tr>
+        <tr>
+            <td>两期比重差d2</td>
+            <td>\[ d2 = \frac{B2}{B1} \times \frac{(r2 - r1)}{(1 + r2)} \]</td>
+            <td>第二个现期比重与第一个现期比重的差值</td>
+        </tr>
+        <tr>
+            <td>比值增长率k1</td>
+            <td>\[ k1 = \frac{(r1 - r2)}{(1 + r2)} \]</td>
+            <td>第一个现期比重相对于第二个现期比重的增长率</td>
+        </tr>
+        <tr>
+            <td>比值增长率k2</td>
+            <td>\[ k2 = \frac{(r2 - r1)}{(1 + r1)} \]</td>
+            <td>第二个现期比重相对于第一个现期比重的增长率</td>
         </tr>
         <tr>
             <td>基期和S</td>
-            <td>\[ S = A2 + B2 \]</td>
-            <td>基期A和基期B的和</td>
+            <td>\[ S = A1 + A2 \]</td>
+            <td>基期A1和基期A2的和</td>
         </tr>
         <tr>
             <td>基期差D</td>
-            <td>\[ D = B2 - A2 \]</td>
-            <td>基期B与基期A的差值</td>
+            <td>\[ D = A2 - A1 \]</td>
+            <td>基期A2与基期A1的差值</td>
         </tr>
         <tr>
             <td>隔年增长率r</td>
@@ -85,13 +119,13 @@
         </tr>
         <tr>
             <td>AB和增长率r3</td>
-            <td>\[ r3 = \frac{A1 + B1}{A2 + B2} - 1 \]</td>
-            <td>现期A+B相对于基期A+B的增长率</td>
+            <td>\[ r3 = \frac{B1 + B2}{A1 + A2} - 1 \]</td>
+            <td>现期B1+B2相对于基期A1+A2的增长率</td>
         </tr>
         <tr>
             <td>AB差增长率r4</td>
-            <td>\[ r4 = \frac{B1 - A1}{B2 - A2} - 1 \]</td>
-            <td>现期B-A相对于基期B-A的增长率</td>
+            <td>\[ r4 = \frac{B2 - B1}{A2 - A1} - 1 \]</td>
+            <td>现期B2-B1相对于基期A2-A1的增长率</td>
         </tr>
     </table>
 </body>
